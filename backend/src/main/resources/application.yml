@@ -11,6 +11,10 @@ spring:
         jwt:
           issuer-uri: http://localhost:8080/realms/myrealm
 
+cors:
+  allowed:
+    origins: ${CORS_ALLOWED_ORIGINS:}
+
 logging:
   level:
     org.springframework.security: DEBUG
