@@ -1,0 +1,70 @@
+{
+  "id": "myrealm",
+  "realm": "myrealm",
+  "displayName": "My Realm",
+  "enabled": true,
+  "clients": [
+    {
+      "id": "react-client-dev",
+      "clientId": "react-client-dev",
+      "name": "React Client for Development",
+      "enabled": true,
+      "rootUrl": "http://localhost:3000",
+      "redirectUris": ["/*"],
+      "webOrigins": ["+"],
+      "standardFlowEnabled": true,
+      "publicClient": true,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
+      "fullScopeAllowed": true
+    },
+    {
+      "id": "react-client-prod",
+      "clientId": "react-client-prod",
+      "name": "React Client for Production",
+      "enabled": true,
+      "rootUrl": "https://keycloak-react-spring-demo.pages.dev",
+      "redirectUris": ["/*"],
+      "webOrigins": ["+"],
+      "standardFlowEnabled": true,
+      "publicClient": true,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
+      "fullScopeAllowed": true
+    }
+  ],
+  "users": [
+    {
+      "id": "test",
+      "username": "test",
+      "firstName": "Test",
+      "lastName": "User",
+      "email": "test@mail.com",
+      "emailVerified": true,
+      "createdTimestamp": 1719559017299,
+      "enabled": true,
+      "totp": false,
+      "credentials": [
+        {
+          "id": "8dbc93a9-d207-4e64-a985-b1a2717fc4cc",
+          "type": "password",
+          "userLabel": "My password",
+          "createdDate": 1719559027548,
+          "secretData": "{\"value\":\"XT2ucGEr/0vyKLAkdjjgpKxP2tvoYFpNhb5An3W16EQw6YPO/b2QbylmiafVkxJr3a9HVxFTrv1GKFXpDX6aFQ==\",\"salt\":\"/pDrtA6C6pBEdwX/xksfOg==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": ["default-roles-test"],
+      "notBefore": 0,
+      "groups": []
+    }
+  ]
+}
