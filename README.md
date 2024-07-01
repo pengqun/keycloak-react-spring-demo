@@ -89,6 +89,7 @@ gcloud run deploy keycloak \
     --cpu=2 \
     --min-instances=0 \
     --max-instances=1 \
+    --args=start,--import-realm,--cache=local
     --set-env-vars KEYCLOAK_ADMIN=admin,KEYCLOAK_ADMIN_PASSWORD=admin,KC_HTTP_ENABLED=true,KC_PROXY_HEADERS=xforwarded,KC_HOSTNAME=keycloak-lta4azdwga-uc.a.run.app
 ```
 
