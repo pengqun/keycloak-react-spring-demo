@@ -9,11 +9,11 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/myrealm
+          issuer-uri: ${KEYCLOAK_REALM_URL:http://localhost:8080/realms/myrealm}
 
 cors:
   allowed:
-    origins: ${CORS_ALLOWED_ORIGINS:}
+    origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
 
 logging:
   level:
