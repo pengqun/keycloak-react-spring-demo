@@ -85,12 +85,12 @@ gcloud run deploy keycloak \
     --region=${GCLOUD_REGION} \
     --allow-unauthenticated \
     --port=8080 \
-    --memory=1024Mi \
-    --cpu=2 \
+    --memory=2Gi \
+    --cpu=4 \
     --min-instances=0 \
     --max-instances=1 \
-    --args=start,--import-realm,--cache=local
-    --set-env-vars KEYCLOAK_ADMIN=admin,KEYCLOAK_ADMIN_PASSWORD=admin,KC_HTTP_ENABLED=true,KC_PROXY_HEADERS=xforwarded,KC_HOSTNAME=keycloak-lta4azdwga-uc.a.run.app
+    --args=start,--optimized,--import-realm \
+    --set-env-vars KC_HOSTNAME=keycloak-lta4azdwga-uc.a.run.app
 ```
 
 **Note**: KC_HOSTNAME should be set to the domain of your deployed instance, which may only be able to obtain after deployment:
@@ -117,7 +117,7 @@ gcloud run deploy spring-backend \
     --cpu=1 \
     --min-instances=0 \
     --max-instances=1 \
-    --set-env-vars KEYCLOAK_REALM_URL=https://keycloak-lta4azdwga-uc.a.run.app/realms/myrealm
+    --set-env-vars KEYCLOAK_REALM_URL=https://keycloak-lta4azdwga-uc.a.run.app/realms/myrealm,CORS_ALLOWED_ORIGINS=https://keycloak-react-spring-demo.pages.dev
 ```
 
 ### 3. Deploy frontend React app to Cloudflare Pages
