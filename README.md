@@ -4,14 +4,14 @@ Showing how to integrate Keycloak IAM with React frontend and Spring backend.
 
 Online demo: <https://keycloak-react-spring-demo.pages.dev>
 
-Main techical stack and depdendency versions:
+Techical stack used (with dependency versions):
 
-- **Keycloak**: 25.0.1
-- **Frontend**
-  - **React**: 18.20
-  - **react-oidc-context**:
-- **Backend**
-  - **Spring Boot**:
+- **Keycloak**: v25.0.1
+- **React**: v18.20
+  - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.1.0
+  - [oidc-client-ts](https://github.com/authts/oidc-client-ts): v3.0.1
+- **Spring Boot**: v3.3.1
+  - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html)
 
 ## Run everything locally
 
