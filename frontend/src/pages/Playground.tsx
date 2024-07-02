@@ -6,6 +6,9 @@ import { Slide, ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/toast.css';
 
+const API_PATH_PREFIX = import.meta.env.DEV ? 'api' : import.meta.env.VITE_BACKEND_BASE_URL;
+console.debug("Set API path prefix to '" + API_PATH_PREFIX + "'");
+
 const PRIVATE_PATH = '/hello/private';
 const PUBLIC_PATH = '/hello/public';
 
@@ -26,20 +29,21 @@ const Playground = () => {
       setAccessToken(newToken);
       accessTokenRef.current = newToken;
 
-      console.debug('Renewed access token: ' + auth.user?.access_token);
-      toast.info('Access Token 已自动刷新', {
+      toast.clearWaitingQueue();
+      toast.info('Renewed access token', {
         position: 'top-right',
-        autoClose: 1000,
+        autoClose: 500,
         hideProgressBar: true,
         theme: 'light',
         transition: Slide
       });
+      console.debug('Renewed access token: ' + auth.user?.access_token);
     }
   }, [auth.user?.access_token]);
 
   const queryFn = async () => {
     const headers: Record<string, string> = isAttachToken ? { authorization: `Bearer ${accessToken}` } : {};
-    const response = await fetch('api' + apiPath, { headers: headers });
+    const response = await fetch(API_PATH_PREFIX + apiPath, { headers: headers });
     console.debug(`Querying API '${apiPath}' with token: ${accessToken}`);
 
     if (!response.ok) {
@@ -63,7 +67,7 @@ const Playground = () => {
 
   return (
     <div>
-      <ToastContainer />
+      <ToastContainer limit={1} />
       <h1 className="text-lg font-semibold mt-5 mb-3">请求参数</h1>
       <label className="form-control">
         <div className="label">
