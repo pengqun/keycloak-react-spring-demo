@@ -8,8 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'react-oidc-context';
 import Layout from './layouts/Layout';
 
+if (import.meta.env.PROD) {
+  console.log('Running in production mode, version: ' + import.meta.env.VITE_DEPLOY_VERSION);
+} else {
+  console.log('Running in development mode');
+}
+
 const userManager = new UserManager({
-  authority: import.meta.env.VITE_KEYCLOAK_BASE_URL,
+  authority: import.meta.env.VITE_KEYCLOAK_REALM_URL,
   client_id: import.meta.env.VITE_KEYCLOAK_CLIENT_ID,
   redirect_uri: `${window.location.origin}${window.location.pathname}`,
   post_logout_redirect_uri: window.location.origin,
