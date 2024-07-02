@@ -1,17 +1,29 @@
 # keycloak-react-spring-demo
 
-Showing how to integrate Keycloak IAM with React frontend and Spring backend.
-
-Online demo: <https://keycloak-react-spring-demo.pages.dev>
-
-Techical stack used (with dependency versions):
+Showing how to integrate Keycloak IAM with React frontend and Spring backend, with following technical stack:
 
 - **Keycloak**: v25.0.1
-- **React**: v18.20
+- **React**: v18.3.1
   - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.1.0
   - [oidc-client-ts](https://github.com/authts/oidc-client-ts): v3.0.1
+  - [react-router](https://github.com/remix-run/react-router): v6.24.0
+  - [react-query](https://github.com/tanstack/query): v5.49.2
+  - [react-toastify](https://github.com/fkhadra/react-toastify): v10.0.5
+  - [react18-json-view](https://github.com/YYsuni/react18-json-view): v0.2.8
+  - [tailwindcss](https://tailwindcss.com/): v3.4.4
+  - [daisyui](https://daisyui.com/): v4.12.10
+  - [heroicons](https://github.com/tailwindlabs/heroicons): v2.1.4
+  - [typescript](https://www.typescriptlang.org/): v5.4.5
+  - [vite](https://vitejs.dev/): v5.2.10
 - **Spring Boot**: v3.3.1
-  - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html)
+  - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html): bundled
+  - [spring-boot-starter-webflux](https://docs.spring.io/spring-framework/reference/web/webflux.html): bundled
+  - [kotlin](https://kotlinlang.org/docs/home.html): v2.0.0
+  - [gradle](https://docs.gradle.org/): v8.7
+
+## Online Demo
+
+<https://keycloak-react-spring-demo.pages.dev>
 
 ## Run everything locally
 

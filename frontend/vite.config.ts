@@ -17,6 +17,7 @@ export default defineConfig(({ command, mode }) => {
         open: true,
         strictPort: true,
         proxy: {
+          // Local proxy to avoid CORS issues in dev mode
           '/api': {
             target: env.VITE_BACKEND_BASE_URL,
             changeOrigin: true,
@@ -25,11 +26,6 @@ export default defineConfig(({ command, mode }) => {
             }
           }
         }
-      },
-      test: {
-        global: true,
-        environment: 'jsdom',
-        setupFiles: './src/setupTests.ts'
       }
     };
   }

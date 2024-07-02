@@ -26,7 +26,7 @@ class CorsConfig : WebFluxConfigurer {
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600)
-            log.info("Add cors allowed origins: {}", allowedOrigins)
+            log.info("Added CORS allowed origins: {}", allowedOrigins)
         }
     }
 }
