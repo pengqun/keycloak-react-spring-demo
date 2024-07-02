@@ -1,7 +1,8 @@
 # Stage 1: Build
 FROM quay.io/keycloak/keycloak:latest as builder
 
-ENV KC_DB=dev-file
+# ENV KC_DB=dev-file
+ENV KC_DB=dev-mem
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 
@@ -25,6 +26,8 @@ ENV KEYCLOAK_ADMIN_PASSWORD=admin
 
 WORKDIR /opt/keycloak
 
-EXPOSE 8080
+EXPOSE 8080 9000
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+
+CMD ["start", "--optimized", "--import-realm"]

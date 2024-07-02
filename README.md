@@ -89,7 +89,6 @@ gcloud run deploy keycloak \
     --cpu=4 \
     --min-instances=0 \
     --max-instances=1 \
-    --args=start,--optimized,--import-realm \
     --set-env-vars KC_HOSTNAME=keycloak-lta4azdwga-uc.a.run.app
 ```
 
@@ -113,8 +112,8 @@ gcloud run deploy spring-backend \
     --platform=managed \
     --region=${GCLOUD_REGION} \
     --allow-unauthenticated \
-    --memory=256Mi \
-    --cpu=1 \
+    --memory=512Mi \
+    --cpu=2 \
     --min-instances=0 \
     --max-instances=1 \
     --set-env-vars KEYCLOAK_REALM_URL=https://keycloak-lta4azdwga-uc.a.run.app/realms/myrealm,CORS_ALLOWED_ORIGINS=https://keycloak-react-spring-demo.pages.dev
@@ -122,8 +121,12 @@ gcloud run deploy spring-backend \
 
 ### 3. Deploy frontend React app to Cloudflare Pages
 
-```bash
+You can deploy a Cloudflare Pages project using CLI, direct upload, or Git integration, see [docs](https://developers.cloudflare.com/pages/get-started/).
 
+In this demo, I used Git integration to integration this GitHub repo with Cloudflare Pages. After configured, you can deploy the front app by running the following command:
+
+```bash
+./deploy.sh frontend
 ```
 
 ## Credits

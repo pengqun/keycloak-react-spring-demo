@@ -67,7 +67,6 @@ if [[ $1 == 'keycloak' ]]; then
     --cpu=4 \
     --min-instances=0 \
     --max-instances=1 \
-    --args=start-dev,--import-realm \
     --set-env-vars KC_HOSTNAME=${KEYCLOAK_HOST},DEPLOY_VERSION=${DEPLOY_VERSION}
 
   echo "Done Deploying keycloak" && cd ..

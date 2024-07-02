@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: start-dev --import-realm
+    command: start-dev --import-realm --health-enabled=true --metrics-enabled=true
     ports:
       - "8080:8080"
+      - "9000:9000"
