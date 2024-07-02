@@ -2,6 +2,7 @@ package io.github.pengqun
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
 import org.springframework.security.config.web.server.ServerHttpSecurity
@@ -20,7 +21,8 @@ class SecurityConfig {
     fun securityWebFilterChain(http: ServerHttpSecurity): SecurityWebFilterChain {
         return http
             .authorizeExchange { exchange ->
-                exchange.pathMatchers("/hello/public").permitAll()
+                exchange.pathMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    .pathMatchers("/hello/public").permitAll()
                     .pathMatchers("/hello/private").authenticated()
                     .anyExchange().denyAll()
             }
