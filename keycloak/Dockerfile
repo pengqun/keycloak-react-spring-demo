@@ -1,8 +1,7 @@
 # Stage 1: Build
 FROM quay.io/keycloak/keycloak:latest as builder
 
-# ENV KC_DB=dev-file
-ENV KC_DB=dev-mem
+ENV KC_DB=dev-file
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 

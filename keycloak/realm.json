@@ -43,10 +43,13 @@
     {
       "id": "test",
       "username": "test",
-      "firstName": "Test",
-      "lastName": "User",
+      "firstName": "One",
+      "lastName": "Punch",
       "email": "test@mail.com",
       "emailVerified": true,
+      "attributes": {
+        "picture": ["https://avatars.githubusercontent.com/u/971005"]
+      },
       "createdTimestamp": 1719559017299,
       "enabled": true,
       "totp": false,
@@ -56,15 +59,32 @@
           "type": "password",
           "userLabel": "My password",
           "createdDate": 1719559027548,
-          "secretData": "{\"value\":\"XT2ucGEr/0vyKLAkdjjgpKxP2tvoYFpNhb5An3W16EQw6YPO/b2QbylmiafVkxJr3a9HVxFTrv1GKFXpDX6aFQ==\",\"salt\":\"/pDrtA6C6pBEdwX/xksfOg==\",\"additionalParameters\":{}}",
-          "credentialData": "{\"hashIterations\":210000,\"algorithm\":\"pbkdf2-sha512\",\"additionalParameters\":{}}"
+          "secretData": "{\"value\":\"SO7EAZlAXYEjMiyG8Wl8O5uRZHr5BTsiz1Ulo2rxKOs=\",\"salt\":\"bTyk4KI7T28+4dTVlBmtNQ==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
         }
       ],
       "disableableCredentialTypes": [],
       "requiredActions": [],
       "realmRoles": ["default-roles-test"],
+      "clientRoles": {
+        "account": ["view-profile", "view-applications", "manage-account"]
+      },
       "notBefore": 0,
       "groups": []
     }
-  ]
+  ],
+  "components": {
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "id": "c8e34650-5ef4-4bd2-90d4-ce791adf38e3",
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {
+          "kc.user.profile.config": [
+            "{\"attributes\":[{\"name\":\"username\",\"displayName\":\"${username}\",\"validations\":{\"length\":{\"min\":3,\"max\":255},\"username-prohibited-characters\":{},\"up-username-not-idn-homograph\":{}},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"email\",\"displayName\":\"${email}\",\"validations\":{\"email\":{},\"length\":{\"max\":255}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"firstName\",\"displayName\":\"${firstName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"lastName\",\"displayName\":\"${lastName}\",\"validations\":{\"length\":{\"max\":255},\"person-name-prohibited-characters\":{}},\"required\":{\"roles\":[\"user\"]},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false},{\"name\":\"picture\",\"displayName\":\"Picture\",\"validations\":{\"uri\":{\"allowFragment\":true,\"requireValidUrl\":true}},\"annotations\":{},\"permissions\":{\"view\":[\"admin\",\"user\"],\"edit\":[\"admin\",\"user\"]},\"multivalued\":false}],\"groups\":[{\"name\":\"user-metadata\",\"displayHeader\":\"User metadata\",\"displayDescription\":\"Attributes, which refer to user metadata\"}]}"
+          ]
+        }
+      }
+    ]
+  }
 }
