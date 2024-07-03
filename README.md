@@ -1,8 +1,10 @@
 # keycloak-react-spring-demo
 
-TODO Gif demo
+A simple demo and useful playground for integrating **Keycloak** with **React** frontend and **Spring** backend, using standard [OpenID Connect](https://openid.net/) protocol.
 
-Showing how to integrate **Keycloak** IAM with **React** frontend and **Spring** backend, using standard [OpenID Connect](https://openid.net/) protocol, with following technical stack:
+![Online Demo Showcase](./assets/online-demo.gif)
+
+Main technical stack involved (with exact depencency versions):
 
 - **Keycloak**: v25.0.1
 - **React**: v18.3.1
@@ -25,15 +27,26 @@ Showing how to integrate **Keycloak** IAM with **React** frontend and **Spring**
 
 ## Online Demo
 
-<https://keycloak-react-spring-demo.pages.dev>
+Link: <https://keycloak-react-spring-demo.pages.dev>
 
-1. Visit above link, you will first see the following loading page:
+- After redirecting to Keycloak login page, enter username `test` and password `test`.
+- You can also access the Keycloak [admin console](https://keycloak-lta4azdwga-uc.a.run.app/admin), with username `admin` and password `admin`.
 
-2. After a while, you will be redirected to the Keycloak login page:
+### Homepage
 
-3. On successful login, you will be redirected to the Home page:
+Showing what you'll get (that is, a `AuthContextProps` object) in frontend after login:
 
-4. Switch to the Playground tab, you can play with the APIs and token params:
+![alt text](image-2.png)
+
+![alt text](image-3.png)
+
+### API Playground
+
+Sending request (with or without token) to backend, and get response with decoded JWT:
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
 
 ## Run everything locally
 
