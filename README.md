@@ -36,17 +36,17 @@ Link: <https://keycloak-react-spring-demo.pages.dev>
 
 Showing what you'll get (that is, a `AuthContextProps` object) in frontend after login:
 
-![alt text](image-2.png)
+![alt text](./assets/homepage-1.png)
 
-![alt text](image-3.png)
+![alt text](./assets/homepage-2.png)
 
 ### API Playground
 
 Sending request (with or without token) to backend, and get response with decoded JWT:
 
-![alt text](image-5.png)
+![alt text](./assets/playground-1.png)
 
-![alt text](image-6.png)
+![alt text](./assets/homepage-2.png)
 
 ## Run everything locally
 
