@@ -11,8 +11,9 @@ const Home = () => {
     <div>
       <h1 className="text-xl font-semibold mt-5">AuthContextProps</h1>
       <p className="py-6 mb-3">
-        登录成功后，使用 <span className="bg-gray-200 text-sm font-mono px-2 py-1 rounded">const auth = useAuth()</span>{' '}
-        获取认证相关上下文：
+        After login successfully, use{' '}
+        <span className="bg-gray-200 text-sm font-mono px-2 py-1 rounded">const auth = useAuth()</span> to obtain the{' '}
+        <span className="bg-gray-200 text-sm font-mono px-2 py-1 rounded">AuthContextProps</span>, which includes:
       </p>
       <div role="tablist" className="tabs tabs-lifted">
         <input
@@ -29,9 +30,9 @@ const Home = () => {
             <table className="table text-base">
               <thead>
                 <tr>
-                  <th>字段名</th>
-                  <th>当前值</th>
-                  <th>含义</th>
+                  <th>Field Name</th>
+                  <th>Current Value</th>
+                  <th>Description</th>
                 </tr>
               </thead>
               <tbody>
@@ -39,49 +40,51 @@ const Home = () => {
                   <td>user</td>
                   <td>{JSON.stringify(auth.user).substring(0, 30) + '...'}</td>
                   <td>
-                    用户信息，字段含义请参考：
+                    Profile of the autenticated user, see{' '}
                     <a
                       className="underline"
                       href="https://authts.github.io/oidc-client-ts/classes/User.html"
                       target="_blank"
                     >
-                      User | oidc-client 接口文档
-                    </a>
+                      User | oidc-client
+                    </a>{' '}
+                    for more details.
                   </td>
                 </tr>
                 <tr>
                   <td>settings</td>
                   <td>{JSON.stringify(auth.settings).substring(0, 30) + '...'}</td>
                   <td>
-                    认证配置，字段含义请参考：
+                    Configuration of you OIDC client, see{' '}
                     <a
                       className="underline"
                       href="https://authts.github.io/oidc-client-ts/interfaces/UserManagerSettings.html"
                       target="_blank"
                     >
-                      UserManagerSettings | oidc-client 接口文档
-                    </a>
+                      UserManagerSettings | oidc-client
+                    </a>{' '}
+                    for more details.
                   </td>
                 </tr>
                 <tr>
                   <td>isLoading</td>
                   <td>{String(auth.isLoading)}</td>
-                  <td>当库已初始化，且没有正在进行的导航请求时，值为 true</td>
+                  <td>True when the library has been initialized and no navigator request is in progress.</td>
                 </tr>
                 <tr>
                   <td>isAuthenticated</td>
                   <td>{String(auth.isAuthenticated)}</td>
-                  <td>当用户拥有有效的访问令牌 (Access Token) 时, 值为 true</td>
+                  <td>True while the user has a valid access token.</td>
                 </tr>
                 <tr>
                   <td>activeNavigator</td>
                   <td>{auth.activeNavigator || 'null'}</td>
-                  <td>跟踪最近一次登录/登出请求方法的状态（可能为空）</td>
+                  <td>Tracks the status of most recent signin/signout request method (may be null).</td>
                 </tr>
                 <tr>
                   <td>error</td>
                   <td>{JSON.stringify(auth.error) || 'null'}</td>
-                  <td>如果存在登录或静默续订 (silent renew) 错误，则不为空</td>
+                  <td>Signin or silent renew error (null if everything goes right).</td>
                 </tr>
               </tbody>
             </table>

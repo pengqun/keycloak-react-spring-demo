@@ -68,7 +68,7 @@ const Playground = () => {
   return (
     <div>
       <ToastContainer limit={1} />
-      <h1 className="text-lg font-semibold mt-5 mb-3">请求参数</h1>
+      <h1 className="text-lg font-semibold mt-5 mb-3">Request</h1>
       <label className="form-control">
         <div className="label">
           <span className="label-text font-semibold">API Path</span>
@@ -78,8 +78,8 @@ const Playground = () => {
           onChange={(event) => setApiPath(event.target.value)}
           className="select select-bordered w-64"
         >
-          <option value={PRIVATE_PATH}>{PRIVATE_PATH} (有认证)</option>
-          <option value={PUBLIC_PATH}>{PUBLIC_PATH} (无认证)</option>
+          <option value={PRIVATE_PATH}>{PRIVATE_PATH} (with auth)</option>
+          <option value={PUBLIC_PATH}>{PUBLIC_PATH} (with no auth)</option>
         </select>
         <div className="label mt-3 justify-start">
           <span className="label-text font-semibold">Access Token</span>
@@ -89,6 +89,7 @@ const Playground = () => {
             onChange={(event) => setIsAttachToken(event.target.checked)}
             className="checkbox checkbox-sm ml-3"
           />
+          <span className="ml-3 text-sm font-light italic">👈🏻 toggle this to send request w/ or w/o token</span>
         </div>
         <textarea
           value={accessToken}
@@ -97,7 +98,7 @@ const Playground = () => {
           disabled={!isAttachToken}
         />
       </label>
-      <h1 className="text-lg font-semibold mt-6 mb-3">响应结果</h1>
+      <h1 className="text-lg font-semibold mt-6 mb-3">Response</h1>
       <label className="form-control">
         {isPending ? (
           <span className="loading loading-spinner loading-md"></span>

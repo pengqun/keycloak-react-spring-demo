@@ -14,6 +14,9 @@ if (import.meta.env.PROD) {
   console.log('Running in development mode');
 }
 
+/**
+ * See: {@link https://authts.github.io/oidc-client-ts/classes/UserManager.html}
+ */
 const userManager = new UserManager({
   authority: import.meta.env.VITE_KEYCLOAK_REALM_URL,
   client_id: import.meta.env.VITE_KEYCLOAK_CLIENT_ID,
@@ -37,6 +40,7 @@ const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter basename="/">
+      {/* See: https://github.com/authts/react-oidc-context?tab=readme-ov-file#getting-started */}
       <AuthProvider userManager={userManager} onSigninCallback={onSigninCallback}>
         <QueryClientProvider client={queryClient}>
           <Layout>

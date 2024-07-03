@@ -10,6 +10,8 @@ const App = () => {
   const [hasTriedSignin, setHasTriedSignin] = useState(false);
 
   /**
+   * Automatic sign-in
+   *
    * See {@link https://github.com/authts/react-oidc-context?tab=readme-ov-file#automatic-sign-in}
    */
   useEffect(() => {
@@ -23,7 +25,9 @@ const App = () => {
     return (
       <div className="flex justify-center items-center h-24 mt-48">
         <span className="loading loading-spinner loading-lg"></span>
-        <span className="ml-8 text-lg font-medium">加载中，摸会鱼吧~ 🐟🐟🐟</span>
+        <span className="ml-8 text-lg font-medium">
+          Loading... (it may take a while for the first time, just have some coffee~ ☕️)
+        </span>
       </div>
     );
   }
@@ -45,9 +49,9 @@ const App = () => {
           />
         </svg>
         {auth.error ? (
-          <span>登录好像挂了，你克服一下 😬：{auth.error.message}</span>
+          <span>😬 Ops, login error: {auth.error.message} (checkout Keycloak status and configuration)</span>
         ) : (
-          <span>登录没报错，但为何你还是没进去呢 🤔</span>
+          <span>🤔 You're still not authenticated, and I don't know why... Maybe you can find out! </span>
         )}
       </div>
     );

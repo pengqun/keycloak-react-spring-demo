@@ -1,8 +1,5 @@
 import { useAuth } from 'react-oidc-context';
 import { useNavigate } from 'react-router-dom';
-import { Slide, ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import '../styles/toast.css';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,17 +10,20 @@ type NavItemType = {
   to: string;
 };
 
+const { VITE_KEYCLOAK_REALM_URL, VITE_KEYCLOAK_CLIENT_ID } = import.meta.env;
+const accountConsoleUrl = `${VITE_KEYCLOAK_REALM_URL}/account?referrer=${VITE_KEYCLOAK_CLIENT_ID}&referrer_uri=${window.location.origin}`;
+
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const auth = useAuth();
   const navigate = useNavigate();
 
   const navItems: NavItemType[] = [
     {
-      text: '首页',
+      text: 'Home',
       to: '/'
     },
     {
-      text: 'API 测试',
+      text: 'API Playground',
       to: '/playground'
     }
   ];
@@ -32,9 +32,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="mx-auto mt-2 px-2 max-w-screen-xl">
       <div className="navbar bg-base-100 mb-3">
         <div className="flex-1">
-          <span className="font-extrabold text-3xl">React-IAM Demo</span>
-          <span className="ml-2 badge badge-md">for Mobi 2.0</span>
-          <ul className="menu menu-horizontal px-5 text-base">
+          <span className="font-extrabold text-3xl">Keycloak Demo</span>
+          <span className="ml-2 badge badge-md">for React & Spring</span>
+          <ul className="menu menu-horizontal px-3 text-base">
             {navItems.map((item) => (
               <li key={item.to}>
                 <a
@@ -65,44 +65,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-md dropdown-content bg-base-100 rounded-box w-40"
+                  className="mt-3 z-[1] p-2 shadow menu menu-md dropdown-content bg-base-100 rounded-box w-28"
                 >
                   <li>
-                    {/** See: keycloak-js - accountManagement() / createAccountUrl(options) */}
-                    <a
-                      onClick={() =>
-                        toast.info('TODO 跳转到 Keycloak 个人中心', {
-                          position: 'top-center',
-                          autoClose: 1000,
-                          hideProgressBar: true,
-                          closeOnClick: true,
-                          pauseOnHover: false,
-                          draggable: false,
-                          progress: undefined,
-                          theme: 'light',
-                          transition: Slide
-                        })
-                      }
-                    >
-                      个人信息
-                    </a>
+                    <a href={accountConsoleUrl}>Profile</a>
                   </li>
                   <li>
-                    <a onClick={() => auth.signoutRedirect()}>登出</a>
+                    <a onClick={() => auth.signoutRedirect()}>Logout</a>
                   </li>
                 </ul>
               </div>
-              <span className="font-serif text-light text-gray-500">{auth.user?.profile?.preferred_username}</span>
+              <span className="font-serif text-light text-gray-500">{auth.user?.profile?.name}</span>
             </>
           ) : (
             <div className="navbar-end">
-              <a className="btn w-32 font-normal">登录</a>
+              <a className="btn w-32 font-normal">Login</a>
             </div>
           )}
         </div>
-      </div>
-      <div>
-        <ToastContainer />
       </div>
       <div className="px-3 mb-3">{children}</div>
     </div>

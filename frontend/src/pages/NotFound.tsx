@@ -19,7 +19,7 @@ const NotFound = () => {
         />
       </svg>
       <span>
-        老铁，咱这可没有 '<strong>{location.pathname}</strong>' 这个页面呐，你是不是迷路了 🤔
+        There is no page linked to '<strong>{location.pathname}</strong>' here. Are you lost, bro? 🤔
       </span>
     </div>
   );

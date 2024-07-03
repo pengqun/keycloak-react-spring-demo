@@ -1,10 +1,12 @@
 # keycloak-react-spring-demo
 
-Showing how to integrate Keycloak IAM with React frontend and Spring backend, with following technical stack:
+TODO Gif demo
+
+Showing how to integrate **Keycloak** IAM with **React** frontend and **Spring** backend, using standard [OpenID Connect](https://openid.net/) protocol, with following technical stack:
 
 - **Keycloak**: v25.0.1
 - **React**: v18.3.1
-  - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.1.0
+  - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.1.0 (**which interact with Keycloak to auth user and get OIDC tokens**)
   - [oidc-client-ts](https://github.com/authts/oidc-client-ts): v3.0.1
   - [react-router](https://github.com/remix-run/react-router): v6.24.0
   - [react-query](https://github.com/tanstack/query): v5.49.2
@@ -16,7 +18,7 @@ Showing how to integrate Keycloak IAM with React frontend and Spring backend, wi
   - [typescript](https://www.typescriptlang.org/): v5.4.5
   - [vite](https://vitejs.dev/): v5.2.10
 - **Spring Boot**: v3.3.1
-  - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html): bundled
+  - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html): bundled (**which interact with Keycloak to validate OIDC tokens and get user info**)
   - [spring-boot-starter-webflux](https://docs.spring.io/spring-framework/reference/web/webflux.html): bundled
   - [kotlin](https://kotlinlang.org/docs/home.html): v2.0.0
   - [gradle](https://docs.gradle.org/): v8.7
@@ -24,6 +26,14 @@ Showing how to integrate Keycloak IAM with React frontend and Spring backend, wi
 ## Online Demo
 
 <https://keycloak-react-spring-demo.pages.dev>
+
+1. Visit above link, you will first see the following loading page:
+
+2. After a while, you will be redirected to the Keycloak login page:
+
+3. On successful login, you will be redirected to the Home page:
+
+4. Switch to the Playground tab, you can play with the APIs and token params:
 
 ## Run everything locally
 
