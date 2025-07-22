@@ -79,7 +79,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </>
           ) : (
             <div className="navbar-end">
-              <a className="btn w-32 font-normal">Login</a>
+              <a className="btn w-32 font-normal" onClick={() => auth.signinRedirect()}>
+                Login
+              </a>
             </div>
           )}
         </div>
