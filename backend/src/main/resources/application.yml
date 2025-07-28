@@ -3,8 +3,7 @@ server:
 
 spring:
   application:
-    name:
-      spring-backend
+    name: spring-backend
   security:
     oauth2:
       resourceserver:

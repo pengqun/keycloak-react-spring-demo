@@ -14,12 +14,12 @@ const PUBLIC_PATH = '/hello/public';
 
 const Playground = () => {
   const auth = useAuth();
-  const initalialAccessToken = auth.user?.access_token ?? '';
+  const initialAccessToken = auth.user?.access_token ?? '';
 
   const [apiPath, setApiPath] = useState(PRIVATE_PATH);
 
-  const [accessToken, setAccessToken] = useState(initalialAccessToken);
-  const accessTokenRef = useRef(initalialAccessToken);
+  const [accessToken, setAccessToken] = useState(initialAccessToken);
+  const accessTokenRef = useRef(initialAccessToken);
 
   const [isAttachToken, setIsAttachToken] = useState(true);
 
