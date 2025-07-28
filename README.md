@@ -8,17 +8,17 @@ Main technical stack involved (with exact depencency versions):
 
 - **Keycloak**: v25.0.1
 - **React**: v18.3.1
-  - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.1.0 (**which interact with Keycloak to auth user and get OIDC tokens**)
-  - [oidc-client-ts](https://github.com/authts/oidc-client-ts): v3.0.1
-  - [react-router](https://github.com/remix-run/react-router): v6.24.0
-  - [react-query](https://github.com/tanstack/query): v5.49.2
-  - [react-toastify](https://github.com/fkhadra/react-toastify): v10.0.5
-  - [react18-json-view](https://github.com/YYsuni/react18-json-view): v0.2.8
-  - [tailwindcss](https://tailwindcss.com/): v3.4.4
-  - [daisyui](https://daisyui.com/): v4.12.10
-  - [heroicons](https://github.com/tailwindlabs/heroicons): v2.1.4
-  - [typescript](https://www.typescriptlang.org/): v5.4.5
-  - [vite](https://vitejs.dev/): v5.2.10
+  - [react-oidc-context](https://github.com/authts/react-oidc-context): v3.2.0 (**which interact with Keycloak to auth user and get OIDC tokens**)
+  - [oidc-client-ts](https://github.com/authts/oidc-client-ts): v3.1.0
+  - [react-router](https://github.com/remix-run/react-router): v6.29.0
+  - [react-query](https://github.com/tanstack/query): v5.66.9
+  - [react-toastify](https://github.com/fkhadra/react-toastify): v10.0.6
+  - [react18-json-view](https://github.com/YYsuni/react18-json-view): v0.2.9
+  - [tailwindcss](https://tailwindcss.com/): v3.4.17
+  - [daisyui](https://daisyui.com/): v4.12.23
+  - [heroicons](https://github.com/tailwindlabs/heroicons): v2.2.0
+  - [typescript](https://www.typescriptlang.org/): v5.7.3
+  - [vite](https://vitejs.dev/): v5.4.14
 - **Spring Boot**: v3.3.1
   - [spring-boot-starter-oauth2-resource-server](https://docs.spring.io/spring-security/reference/servlet/oauth2/resource-server/index.html): bundled (**which interact with Keycloak to validate OIDC tokens and get user info**)
   - [spring-boot-starter-webflux](https://docs.spring.io/spring-framework/reference/web/webflux.html): bundled
