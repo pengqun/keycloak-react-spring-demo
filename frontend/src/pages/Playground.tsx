@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../styles/toast.css';
 
 const API_PATH_PREFIX = import.meta.env.DEV ? 'api' : import.meta.env.VITE_BACKEND_BASE_URL;
-console.debug("Set API path prefix to '" + API_PATH_PREFIX + "'");
 
 const PRIVATE_PATH = '/hello/private';
 const PUBLIC_PATH = '/hello/public';
@@ -37,14 +36,14 @@ const Playground = () => {
         theme: 'light',
         transition: Slide
       });
-      console.debug('Renewed access token: ' + auth.user?.access_token);
+      if (import.meta.env.DEV) console.debug('Access token renewed');
     }
   }, [auth.user?.access_token]);
 
   const queryFn = async () => {
     const headers: Record<string, string> = isAttachToken ? { authorization: `Bearer ${accessToken}` } : {};
     const response = await fetch(API_PATH_PREFIX + apiPath, { headers: headers });
-    console.debug(`Querying API '${apiPath}' with token: ${accessToken}`);
+    if (import.meta.env.DEV) console.debug(`Querying API '${apiPath}'`);
 
     if (!response.ok) {
       throw new Error(

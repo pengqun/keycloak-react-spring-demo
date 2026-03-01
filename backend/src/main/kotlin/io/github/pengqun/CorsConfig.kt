@@ -22,8 +22,8 @@ class CorsConfig : WebFluxConfigurer {
         if (allowedOrigins.isNotBlank()) {
             registry.addMapping("/**")
                 .allowedOrigins(allowedOrigins)
-                .allowedMethods("*")
-                .allowedHeaders("*")
+                .allowedMethods("GET", "POST", "OPTIONS")
+                .allowedHeaders("Authorization", "Content-Type", "Accept")
                 .allowCredentials(true)
                 .maxAge(3600)
             log.info("Added CORS allowed origins: {}", allowedOrigins)

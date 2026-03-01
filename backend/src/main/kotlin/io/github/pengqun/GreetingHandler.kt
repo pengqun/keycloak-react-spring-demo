@@ -1,5 +1,7 @@
 package io.github.pengqun
 
+import io.github.pengqun.model.Greeting
+import io.github.pengqun.model.Token
 import org.springframework.http.MediaType
 import org.springframework.security.oauth2.jwt.Jwt
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken
@@ -10,7 +12,6 @@ import org.springframework.web.reactive.function.server.ServerResponse
 import reactor.core.publisher.Mono
 import java.time.OffsetDateTime
 import java.time.ZoneId
-import java.util.*
 
 
 /**
@@ -46,17 +47,4 @@ class GreetingHandler() {
                     )
             }
     }
-
-    data class Greeting(
-        val requestId: String = UUID.randomUUID().toString().lowercase(),
-        val message: String,
-        val token: Token? = null
-    )
-
-    data class Token(
-        val issueAt: OffsetDateTime,
-        val expiresAt: OffsetDateTime,
-        val headers: Map<String, Any>,
-        val claims: Map<String, Any>
-    )
 }

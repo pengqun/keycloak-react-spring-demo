@@ -68,9 +68,4 @@ const App = () => {
   );
 };
 
-// const ProtectedApp = withAuthenticationRequired(App, {
-//   OnRedirecting: () => <div>Redirecting to the login page...</div>
-// });
-// export default ProtectedApp;
-
 export default App;
