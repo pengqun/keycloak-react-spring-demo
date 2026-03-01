@@ -5,6 +5,9 @@ services:
       context: .
       dockerfile: Dockerfile
     command: start-dev --import-realm --health-enabled=true --metrics-enabled=true
+    environment:
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
     ports:
       - "8080:8080"
       - "9000:9000"

@@ -7,7 +7,12 @@ export default defineConfig(({ command, mode }) => {
 
   const commonConfig: UserConfigExport = {
     plugins: [react()],
-    base: '/'
+    base: '/',
+    test: {
+      environment: 'jsdom',
+      setupFiles: './src/test/setup.ts',
+      globals: true
+    }
   };
 
   if (command === 'serve') {

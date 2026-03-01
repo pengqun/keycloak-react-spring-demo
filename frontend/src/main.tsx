@@ -33,7 +33,9 @@ const onSigninCallback = () => {
   window.history.replaceState({}, document.title, window.location.pathname);
 };
 
-Log.setLogger(console);
+if (import.meta.env.DEV) {
+  Log.setLogger(console);
+}
 
 const queryClient = new QueryClient();
 

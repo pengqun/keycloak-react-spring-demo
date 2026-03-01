@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM quay.io/keycloak/keycloak:latest as builder
+FROM quay.io/keycloak/keycloak:25.0.1 as builder
 
 ENV KC_DB=dev-file
 ENV KC_HEALTH_ENABLED=true
@@ -10,7 +10,7 @@ COPY --chown=keycloak:keycloak realm.json /opt/keycloak/data/import/realm.json
 RUN /opt/keycloak/bin/kc.sh build
 
 # Stage 2: Runtime
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak:25.0.1
 
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
@@ -20,8 +20,8 @@ ENV TZ=Asia/Shanghai
 ENV KC_CACHE=local
 ENV KC_HTTP_ENABLED=true
 ENV KC_PROXY_HEADERS=xforwarded
-ENV KEYCLOAK_ADMIN=admin
-ENV KEYCLOAK_ADMIN_PASSWORD=admin
+# Admin credentials must be supplied at runtime via environment variables:
+# KEYCLOAK_ADMIN and KEYCLOAK_ADMIN_PASSWORD
 
 WORKDIR /opt/keycloak
 
